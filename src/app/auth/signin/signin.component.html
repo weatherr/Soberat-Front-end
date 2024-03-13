@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Log In</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-img src="../../../assets/img/withDrinks6.png"></ion-img>
+
+<ion-content>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <!-- Errors -->
+    <div *ngIf="errors?.email" class="error">
+      <ion-text color="danger">
+        <h6 class="hError">{{ errors?.email }}</h6>
+      </ion-text>
+    </div>
+    <div *ngIf="errors?.password" class="error">
+      <ion-text color="danger">
+        <h6 class="hError">{{ errors?.password }}</h6>
+      </ion-text>
+    </div>
+    <div *ngIf="errors?.error" class="error">
+      <ion-text color="danger">
+        <h6 class="hError">{{ errors?.error }}</h6>
+      </ion-text>
+    </div>
+    <ion-item lines="full" class="email">
+      <ion-label>Email:</ion-label>
+      <ion-input type="email" required formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Password:</ion-label>
+      <ion-input type="password" required formControlName="password"></ion-input>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button id="signIn" type="submit" color="danger" expand="block">Sign In</ion-button> 
+        <!-- <a [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a> -->
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

@@ -1,0 +1,61 @@
+.card {
+    margin: 0 auto;
+    padding-top: 10%;
+    padding-bottom: 6%;
+
+    .header {
+        height: 50%;
+
+        .avatar {
+            width: 55%;
+            height: 55%;
+            // position: relative;
+            margin: 0 auto;
+
+            img {
+                display: block;
+                border-radius: 50%;
+                // position: absolute;
+                bottom: calc(-1*(80px + 4px));
+                // border: 8px solid #9Dc912;
+                background-color: #fff;
+            }
+        }
+    }
+}
+
+#ingredient {
+    // border: thin solid;
+    // border-top: thick solid;
+    text-decoration: underline;
+    // border-radius: 100px;
+    padding-left: 0.25em;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#howToMake {
+    // border: thin solid;
+    // border-top: thick solid;
+    text-decoration: underline;
+    // border-radius: 100px;
+    padding-left: 0.25em;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.toLeft{
+    margin-left: 10%;
+    margin-right: 5%;
+}
+
+.forButtons{
+    padding-right: 30%;
+    padding-left: 30%;
+    margin-top: 5%;
+    // padding-top: 0;
+}
+
+.forList{
+    padding-left: 15%;
+}

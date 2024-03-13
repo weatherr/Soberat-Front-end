@@ -1,0 +1,36 @@
+.forTitles{
+    text-align: center;
+    --background: #121212;
+    font-weight: bold;
+    --border-color: #5c5c5c70;
+    font-size: 20px;
+}
+
+.forAnimation{
+    --background: #121212;
+}
+
+.toolbar{
+    --background: #ff003cd9; //ff003cd9 e71989
+}
+
+.close{
+    --background: #ffffff40;
+}
+
+.padsH{
+    margin-bottom: 0;
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 1%;
+    font-size: 11px;
+}
+
+.biggerFontForTablet{
+    font-size: 16px;
+}
+
+.ios ion-button{
+    --color: white;
+}

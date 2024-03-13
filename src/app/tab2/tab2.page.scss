@@ -1,0 +1,250 @@
+.cardlol{
+    --background: grey;
+    --color: white;
+}
+
+.forbackground{
+    // background-color: salmon;
+    --background: #202020;
+    // --border-color: red;
+}
+
+.changeBorder{
+    --border-color: #8d8787;
+}
+
+// .card-data {
+// // width: 100%;
+//     display: flex;
+//     flex-direction: row;
+//     flex-wrap: wrap;
+// }
+
+// .card {
+//     // width: 40%;
+//     // height: 100px;
+//     line-height: 100px;
+//     background-color: grey;
+//     // margin: 10px;
+//     color: white;
+//     // text-align: center;
+//     // vertical-align: middle;
+// }
+
+.forGrid{
+    // --ion-grid-width: 300px;
+    size: 300px;
+}
+
+.card {
+    margin: 0 auto;
+    padding-top: 6%;
+    padding-bottom: 6%;
+    padding-right: 6%;
+    width: 25%;
+
+    .header {
+        height: 25%;
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            // position: relative;
+            margin: 0 auto;
+
+            img {
+                display: block;
+                border-radius: 50%;
+                // position: absolute;
+                bottom: calc(-1*(80px + 4px));
+                // border: 8px solid #9Dc912;
+                border: 3px solid #9Dc912; // #ff003c
+                background-color: #9Dc912;
+            }
+        }
+    }
+}
+
+.cardMore {
+    margin: 0 auto;
+    padding-top: 6%;
+    padding-bottom: 6%;
+    padding-right: 6%;
+    width: 50%;
+
+    .headerMore {
+        height: 50%;
+
+        .avatarMore {
+            width: 100%;
+            height: 100%;
+            // position: relative;
+            margin: 0 auto;
+
+            img {
+                display: block;
+                border-radius: 50%;
+                // position: absolute;
+                bottom: calc(-1*(80px + 4px));
+                // border: 8px solid #9Dc912;
+                border: 3px solid #9Dc912;
+                // background-color: #fff;
+            }
+        }
+    }
+}
+
+.cardAre { //for cocktails
+    margin: 0 auto;
+    padding-top: 6%;
+    padding-bottom: 6%;
+    padding-right: 6%;
+    width: 35%;
+
+    .headerAre {
+        height: 35%;
+
+        .avatarAre {
+            width: 100%;
+            height: 100%;
+            // position: relative;
+            margin: 0 auto;
+
+            img {
+                display: block;
+                border-radius: 50%;
+                // position: absolute;
+                bottom: calc(-1*(80px + 4px));
+                // border: 8px solid #9Dc912;
+                border: 3px solid #9Dc912;
+                // background-color: #fff;
+            }
+        }
+    }
+}
+
+.forButton{
+    width:16%;
+    height:30%;
+}
+
+.time{
+    --background: #ff003c; //#E71989 mnogo qko lilavo
+    --border-color: white;
+}
+
+.noNormal{
+    --background: #f38f20; //#E71989 mnogo qko lilavo
+    --border-color: white;
+}
+
+.forFont{
+    font-family: 'Helvetica Neue', sans-serif; font-weight: bold; line-height: 1;
+    // -webkit-text-stroke: 1px black;
+}
+
+.drinksFont{
+    font-weight: bold; letter-spacing: 1px;
+}
+
+.session{
+    // --border-color: purple;
+    // --background:  #f38f20;
+    --border-radius: 5%;
+    border: 3px solid   #ffd534; //#ffd534
+    --color-activated: #f7b66d;
+    // --border-color: 121212;
+    
+}
+
+.onlyNormalSession{
+    --border-radius: 5%;
+    border: 3px solid   #9Dc912; //#ffd534
+    --color-activated: #f7b66d;
+}
+
+.bothSession{
+    --border-radius: 5%;
+    border: 3px solid   #ff003cd9; //#ffd534
+    --color-activated: #f7b66d;
+}
+
+.inElementFirst{
+    --border-color: #9Dc912;
+    --border-width: 3px 0 3px 0;
+    // --background: #ff003c6e;
+}
+
+.inElement{
+    // border: 3px solid #9Dc912; 
+    // --background: #ff003c6e;
+    --border-color: #9Dc912;
+    --border-width: 0 0 3px 0;
+}
+
+.cardNormal {
+    margin: 0 auto;
+    padding-top: 6%;
+    padding-bottom: 6%;
+    padding-right: 6%;
+    width: 25%;
+
+    .headerNormal {
+        height: 25%;
+
+        .avatarNormal {
+            width: 100%;
+            height: 100%;
+            // position: relative;
+            margin: 0 auto;
+
+            img {
+                display: block;
+                border-radius: 50%;
+                // position: absolute;
+                bottom: calc(-1*(80px + 4px));
+                // border: 8px solid #9Dc912;
+                border: 3px solid#ffd534;
+                background-color: #ffd534;
+            }
+        }
+    }
+}
+
+.inElementNormal{
+    // border: 3px solid #f38f20; //#00c176
+    // --background: #ff8a00;
+    --border-color:#ffd534;
+    --border-width: 0 0 3px 0;
+}
+
+.first{
+    --border-color:#ffd534;
+    --border-width: 3px 0 3px 0;
+}
+
+.ios ion-icon{
+    height: 24px;
+    width: 24px;
+}
+
+.ios ion-item-divider{
+    height:39px;
+    --background: #121212;
+    font-size: 14px;
+    font-weight: 0;
+    font-family: var(--ion-font-family, inherit);
+}
+
+.ios ion-list{
+    margin-bottom: 10px;
+}
+
+.forTitle{
+    // font-style: cursive;
+    // font-size: 100%;
+    font-family: 'Helvetica Neue', sans-serif; font-weight: bold; line-height: 1; text-align: center;
+}
+.transparent{
+    background-color: transparent;
+}

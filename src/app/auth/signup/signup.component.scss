@@ -1,0 +1,57 @@
+.yellowSelected {
+    background-color: #fcafb8;
+    // background-color: #f3e4c7;
+    // font-weight:500px;
+    // color: white;
+  }
+
+  .greenSelected {
+    background-color: #e0f0a9;
+    // font-weight:500px;
+    // color: white;
+  }
+
+.error{
+  text-align: center;
+  // vertical-align: middle;
+  padding-left: 4%;
+  padding-right: 4%;
+  background-color: #18191b;
+  font-weight: bold;
+  // font-family: cursive;
+  padding-top:2%;
+  padding-bottom:2%;
+  border: 8px solid red;
+  border-width: 1px 0 0 0; 
+  border-color: red;
+}
+
+.hError{
+  margin:0px;
+  text-align: center;
+  font-weight: bold;
+}
+
+ion-item.item-has-focus > ion-label{
+  color: #f37828 !important;
+}
+
+ion-item{
+  --border-color:  #5f5858;
+  // --border-width: 1px 0 1px 0;
+  // color: #f37828;
+}
+
+.firstItem{
+  --border-color:  #5f5858;
+  --border-width: 1px 0 1px 0;
+  // color: #f37828;
+}
+
+.ios ion-toolbar{
+  --background: #3a3838;
+}
+
+.ios ion-back-button{
+  --color: white;
+}

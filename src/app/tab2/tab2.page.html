@@ -1,17 +1,67 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" style="border: 5px solid rgb(240, 77, 36);">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
+    <ion-title class="forTitle" style="color: rgb(240, 77, 36);">
+      Past Drinking
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- List of Text Items -->
+  <ion-list class="transparent" *ngFor="let session of sessions">
+    <ion-item button detail="false" (click)="onSelect(session)" [ngClass]="{'onlyNormalSession': session.hours_needed <= '06:00','session': session.hours_needed > '06:00' && session.hours_needed < '13:00', 'bothSession': session.hours_needed >= '13:00'}" [class.selected]="session === selectedSession">
+      <ion-label>{{session.created_at | date:'medium'}}</ion-label>
+      <ion-button color="danger" fill="outline" (click)="deleteSession(session)">DELETE</ion-button>
+    </ion-item>
+    <ion-item-group *ngIf="selectedSession == session && session.products">
+      <ion-item-divider class="transparent">
+        <ion-label>Cocktails</ion-label>
+        <ion-icon name="wine-outline" style="color: #9Dc912"></ion-icon>
+      </ion-item-divider>
+    
+      <ion-item routerLink="/detail/{{drink.id}}" detail="false" *ngFor="let drink of currentCocktails; let i = index" button lines="full" [ngClass]="{'inElementFirst': i == 0, 'inElement': i != 0}">
+        <div class="card">
+          <div class="header">
+            <div class="avatar">
+              <img [src]="drink.img">
+            </div>
+          </div>
+        </div>
+        <ion-label>{{drink.name}}</ion-label>
+        <h2 style="margin-right: 4.5%; margin-top: 3.36%;">x {{drink.quantity}}</h2>
+      </ion-item>
+    </ion-item-group>
+    
+    <ion-item-group *ngIf="selectedSession == session && session.normal_drinks">
+      <ion-item-divider class="transparent">
+        <ion-label>Normal Drinks</ion-label>
+        <ion-icon name="beer-outline" style="color: #FFC201"></ion-icon>
+      </ion-item-divider>
+    
+      <ion-item lines="full" *ngFor="let normal of currentNormalDrinks; let i = index" [ngClass]="{'first': i == 0, 'inElementNormal': i != 0}">
+        <div class="cardNormal">
+          <div class="headerNormal">
+            <div class="avatarNormal">
+              <img [src]="normal.img">
+            </div>
+          </div>
+        </div>
+        <ion-label>{{normal.name | titlecase}}  - {{normal.abv}} %</ion-label>
+        <h5 style="margin-top: 11px;">{{normal.mL}} mL</h5>
+      </ion-item>
+    </ion-item-group>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+    <ion-item-group *ngIf="selectedSession == session">
+      <ion-item-divider class="transparent">
+        <ion-label>Time</ion-label>
+        <ion-icon name="hourglass-outline" style="color: #ff003c"></ion-icon>
+      </ion-item-divider>
+    
+      <ion-item  lines="full" class="time">
+        <ion-label class="forFont">{{session.hours_needed}}</ion-label>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+  
+  <h3 style="text-align: center;font-weight: bold;margin-top: 145px;" *ngIf="sessions?.length == 0">No sessions to show. :( Make a calculation and review past sessions here.</h3>
 </ion-content>

@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <ion-title>Soberat</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="close" (click)="dismiss()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item text-center class="forTitles" lines="none"><ion-label style="margin-bottom: 0;">You'll be sober in <span style="color:#ff003cd9;">{{hoursNeeded}}</span> hours.</ion-label></ion-item>
+  <ion-item lines="none" class="forAnimation">
+    <lottie-player autoplay loop src="../../../assets/animations/calculate/{{animation}}.json"></lottie-player>
+  </ion-item>
+  <ion-item text-center class="forTitles" lines="none"><ion-label style="margin-bottom: 0;">Exactly at: <span style="color:#ff003cd9;">{{soberAt}}</span>.</ion-label></ion-item>
+  <ion-item text-center class="forTitles" lines="none"><ion-label style="margin-bottom: 0;">BAC: {{bac}}</ion-label></ion-item>
+  <h6 class="padsH">({{soberLevel}})</h6>
+</ion-content>

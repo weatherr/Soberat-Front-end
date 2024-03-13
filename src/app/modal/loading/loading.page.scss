@@ -1,0 +1,22 @@
+.forAnimation{
+    --background: #121212;
+}
+
+.bg{
+    --background: #1a1b1e;
+}
+
+.md .borders{
+    // --border-color: #9Dc912;
+    // --border-width: 3px 3px 3px 3px;
+    border: 3px solid white;
+    // --background: #ff003c6e;
+}
+
+.ios .borders{
+    // --border-color: #9Dc912;
+    // --border-width: 3px 3px 3px 3px;
+    border: 3px solid white;
+    // padding-top: 2px;
+    // --background: #ff003c6e;
+}

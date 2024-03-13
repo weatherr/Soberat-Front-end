@@ -1,0 +1,98 @@
+<ion-header [translucent]="true" style="border: 5px solid #428cff;">
+  <ion-toolbar>
+    <ion-title class="forFont" style="color:#428cff;">
+      Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true" slot="fixed" >
+  <ion-img src="../../assets/img/avatar3.png" class="avatar" style="margin-top: 12%;"></ion-img>
+  <div *ngIf="clickedEdit == false" style="padding-top:5%;padding-bottom:5%;">
+    <div class="ion-text-center">
+      <ion-item class="inElementFirst" lines="full">
+        <ion-label>Name:</ion-label>
+        <ion-text>{{UserProfile?.name}}</ion-text>
+      </ion-item>
+  
+      <ion-item class="inElement" lines="full">
+        <ion-label>Email:</ion-label>
+        <ion-text>{{UserProfile?.email}}</ion-text>
+      </ion-item>
+  
+      <ion-item class="inElement" lines="full">
+        <ion-label>Weight:</ion-label>
+        <ion-text>{{UserProfile?.weight}} {{UserProfile?.weightType}}</ion-text>
+      </ion-item>
+
+      <ion-item class="inElement" lines="full">
+        <ion-label>Gender:</ion-label>
+        <ion-text>{{UserProfile?.gender}}</ion-text>
+      </ion-item>
+    </div>
+  </div>
+  <div *ngIf="clickedEdit == true">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <div *ngIf="errors?.name" class="error" style="padding-top:5%;">
+        <ion-text color="danger">
+          <h6 class="hError">{{ errors?.name }}</h6>
+        </ion-text>
+      </div>
+      <div *ngIf="errors?.email" class="error">
+        <ion-text color="danger">
+          <h6 class="hError">{{ errors?.email }}</h6>
+        </ion-text>
+      </div>
+      <div *ngIf="errors?.weight" class="error">
+        <ion-text color="danger">
+          <h6 class="hError">{{ errors?.weight }}</h6>
+        </ion-text>
+      </div>
+      <div *ngIf="errors?.gender" class="error">
+        <ion-text color="danger">
+          <h6 class="hError">{{ errors?.gender }}</h6>
+        </ion-text>
+      </div>
+      <div *ngIf="errors?.weightType" class="error">
+        <ion-text color="danger">
+          <h6 class="hError">{{ errors?.weightType }}</h6>
+        </ion-text>
+      </div>
+
+      <ion-item class="inElementFirst" lines="full">
+        <ion-label>Name:</ion-label>
+        <ion-input (focus)="focusFunction()" [ngModel]="UserProfile?.name" type="text" formControlName="name" required></ion-input>
+      </ion-item>
+  
+      <ion-item class="inElement" lines="full">
+        <ion-label>Email:</ion-label>
+        <ion-input (focus)="focusFunction()" [ngModel]="UserProfile?.email" type="email" formControlName="email" required></ion-input>
+      </ion-item>
+  
+      <ion-item class="inElement" lines="full">
+        <ion-label>Weight:</ion-label>
+        <ion-input (focus)="focusFunction()" [ngModel]="UserProfile?.weight" class="forInline" type="number" inputmode="numeric" formControlName="weight" required></ion-input>
+      </ion-item>
+      <div style="margin-left:2.5%;">
+        <ion-chip (click)="kg()" [class.greenSelected]="selectedValue == 'kg'" outline color="success">
+          <ion-label>Kg</ion-label>
+        </ion-chip>
+        <ion-chip (click)="pounds()" [class.yellowSelected]="selectedValue == 'lb/pounds'" outline color="danger">
+          <ion-label>Lbs/pounds</ion-label>
+        </ion-chip>
+      </div>
+      <ion-item class="inElementFirst" lines="full">
+        <ion-label>Gender:</ion-label>
+        <ion-input (focus)="focusFunction()" type="text" [ngModel]="UserProfile?.gender" formControlName="gender" required></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="success" expand="block">Save</ion-button>
+          <ion-button color="danger" expand="block" (click)="cancel()">Cancel</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+  <ion-button *ngIf="clickedEdit == false" (click)="clicked()" expand="full" color="warning" class="forButtons">Edit</ion-button>
+  <ion-button *ngIf="clickedEdit == false" (click)="signOut()" expand="full" color="danger" class="forButtons">Logout</ion-button>
+</ion-content>

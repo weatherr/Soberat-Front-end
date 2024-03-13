@@ -1,0 +1,33 @@
+<ion-content [fullscreen]="true" slot="fixed">
+  <div *ngIf="drink">
+    <ion-header [translucent]="true">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{drink.name | uppercase}}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+      <div class="card">
+        <div class="header">
+          <div class="avatar">
+            <img [style.border]="forBorder" [src]="drink.img">
+          </div>
+        </div>
+      </div>
+      <ion-text>
+        <h3 id="ingredient"[style.text-decoration-color]="secondaryColor">Ingredients:</h3>
+        <ul class="forList">
+          <li *ngFor="let ingredient of separated">
+            {{ingredient}}
+          </li>
+        </ul>
+      </ion-text>
+      <ion-text>
+        <h3 id="howToMake" [style.text-decoration-color]="secondaryColor">How to Make:</h3>
+        <h6 class="toLeft">{{drink.instructions}}</h6>
+      </ion-text>
+      <ion-button expand="block" color="warning" (click)="goBack()" style="margin-top: 20px;">BACK</ion-button>
+  </div>
+</ion-content>
+

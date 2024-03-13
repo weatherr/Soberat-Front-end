@@ -1,17 +1,78 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" style="border: 5px solid rgb(220, 223, 92);">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
+    <ion-title class="forTitle" style="color: rgb(220, 223, 92);">
+      Drinks Calculator
     </ion-title>
   </ion-toolbar>
 </ion-header>
+<!-- class="titleMiddle" -->
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <!-- <h4 class="forFont">1. Select your drinks:</h4> -->
+  <ion-item text-center class="forTitles" lines="none"><ion-label style="margin-bottom: 0;">1. Select your drinks:</ion-label></ion-item>
+  <ion-searchbar searchIcon="beer-outline" class="searchbar" (ionInput)="search(searchBox.value)" (ionFocus)="searchFocused()" #searchBox></ion-searchbar>
+  <!-- <ion-list> -->
+  <ion-item class="searchTerm" *ngFor="let drink of drinks$ | async" button (click)="add(drink.id)" [ngClass]="{'hideSearch': !searching, 'showSearch': searching}">{{drink.name}}</ion-item>
+  <!-- </ion-list> -->
+  <ion-item text-center lines="full" [ngClass]="{'forTitles': drinks?.length > 0 || normalList?.length > 0,'forTitlesTransparent': drinks?.length <= 0 && normalList?.length <= 0}"><ion-label *ngIf="drinks?.length > 0 || normalList?.length > 0">2. Edit amount if necessary:</ion-label></ion-item>
+    <!--  button routerLink="/detail/{{drink.id}}" -->
+    <div *ngIf="errors?.quantity" class="error">
+      <ion-text color="danger">
+        <h6 class="hError">{{ errors?.quantity }}</h6>
+      </ion-text>
+    </div>
+    <div *ngIf="errors?.amount" class="error">
+      <ion-text color="danger">
+        <h6 class="hError">{{ errors?.amount }}</h6>
+      </ion-text>
+    </div>
+    <div *ngIf="errors?.volume" class="error">
+      <ion-text color="danger">
+        <h6 class="hError">{{ errors?.volume }}</h6>
+      </ion-text>
+    </div>
+    <ion-item-group *ngIf="drinks?.length > 0">
+      <ion-item-divider>
+        <ion-label>Cocktails</ion-label>
+        <ion-icon name="wine-outline" style="color: #9Dc912"></ion-icon>
+      </ion-item-divider>
+      <ion-item lines="full" [ngClass]="{'inElementFirst': i == 0, 'inElement': i != 0}" *ngFor="let drink of drinks; let i = index">
+        <div class="card">
+          <div class="header">
+            <div class="avatar">
+              <img routerLink="/detail/{{drink.id}}" [src]="drink.img">
+            </div>
+          </div>
+        </div>
+        <ion-label class="label">{{drink.name}}</ion-label>
+        <h2 style="margin-right: 4.5%; margin-top: 3.36%;" (click)="changeQuantityAsd(drink.id, drink.quantity)">x {{drink.quantity}}</h2>
+        <ion-button fill="clear" class="delete" color="danger" size="small" title="delete drink" (click)="delete(drink)">-</ion-button>
+      </ion-item>
+    </ion-item-group>
+    <ion-item-group *ngIf="normalList?.length > 0">
+      <ion-item-divider>
+        <ion-label>Normal Drinks</ion-label>
+        <ion-icon name="beer-outline" style="color: #FFC201"></ion-icon>
+      </ion-item-divider>
+      <ion-item lines="full" [ngClass]="{'first': i == 0, 'inElementNormal': i != 0}" *ngFor="let normal of normalList; let i = index">
+        <div class="cardNormal">
+          <div class="headerNormal">
+            <div class="avatarNormal">
+              <img [src]="normal.img">
+            </div>
+          </div>
+        </div>
+        <ion-label (click)="changeABV(normal.id, normal.abv)">{{normal.name | titlecase}} - {{normal.abv}} %</ion-label>
+        <h4 style="margin-right: 4.5%; margin-top: 3.36%;" (click)="changeMLAsd(normal.id, normal.mL)" *ngIf="deviceWidth > 418 || normal.mL < 999.99">{{normal.mL}} mL</h4>
+        <h5 style="margin-right: 4.5%; margin-top: 3.36%;" (click)="changeMLAsd(normal.id, normal.mL)" *ngIf="deviceWidth < 418 && normal.mL > 999.99">{{normal.mL}} mL</h5>
+        <ion-button fill="clear" class="delete" color="danger" size="small" title="delete drink" (click)="deleteNormal(normal)">-</ion-button>
+      </ion-item>
+    </ion-item-group>
+  <ion-button expand="block" style="margin: 10px 50px 0 50px;" color="danger" *ngIf="drinks?.length > 0 || normalList?.length > 0" (click)="clearList()">
+    Clear List
+  </ion-button>
+  <ion-item text-center class="forTitles" lines="none"><ion-label *ngIf="(drinks?.length > 0 || normalList?.length > 0) && (errors?.length == 0 || errors == null)" style="margin-bottom: 0;font-size:18px;">3. Calculate time needed to get sober:</ion-label></ion-item>
+  <ion-button class="calculate calculateRipple" expand="full" *ngIf="(drinks?.length > 0 || normalList?.length > 0) && (errors?.length == 0 || errors == null)" (click)="calculate()">
+    Calculate
+  </ion-button>
 </ion-content>

@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-img src="../../assets/img/withDrinks10.png"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="auth-form background">
+  <ion-grid>
+    <ion-row>
+      <ion-col align-self-center>
+        <ion-button [routerLink]="['/register']" expand="block" class="myorange orangeRiple">Register</ion-button>
+
+        <span class="divider line one-line">or</span>
+
+        <span class="already">Already a user?</span>
+
+        <ion-button [routerLink]="['/login']" expand="block" color="danger">Sign In</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

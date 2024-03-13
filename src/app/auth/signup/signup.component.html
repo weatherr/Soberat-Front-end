@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-img src="../../../assets/img/forLoginLogoOnlyLetter33.png"></ion-img>
+<ion-content>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <!-- Errors -->
+    <div *ngIf="errors?.name" class="error">
+      <ion-text color="danger">
+        <h6 class="hError">{{ errors?.name }}</h6>
+      </ion-text>
+    </div>
+    <div *ngIf="errors?.email" class="error">
+      <ion-text color="danger">
+        <h6 class="hError">{{ errors?.email }}</h6>
+      </ion-text>
+    </div>
+    <div *ngIf="errors?.weight" class="error">
+      <ion-text color="danger">
+        <h6 class="hError">{{ errors?.weight }}</h6>
+      </ion-text>
+    </div>
+    <div *ngIf="errors?.gender" class="error">
+      <ion-text color="danger">
+        <h6 class="hError">{{ errors?.gender }}</h6>
+      </ion-text>
+    </div>
+    <div *ngIf="errors?.weightType" class="error">
+      <ion-text color="danger">
+        <h6 class="hError">{{ errors?.weightType }}</h6>
+      </ion-text>
+    </div>
+    <div *ngIf="errors?.password" class="error">
+      <ion-text color="danger">
+        <h6 class="hError">{{ errors?.password }}</h6>
+      </ion-text>
+    </div>
+    <div *ngIf="errors?.password_confirmation" class="danger">
+      <ion-text color="danger">
+        <h6 class="hError">{{ errors?.password_confirmation }}</h6>
+      </ion-text>
+    </div>
+    
+    <ion-item class="firstItem" lines="full">
+      <ion-label>Name:</ion-label>
+      <ion-input (focus)="focusFunction()" type="text" formControlName="name" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label>Email address:</ion-label>
+      <ion-input (focus)="focusFunction()" type="email" formControlName="email" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label>Weight:</ion-label>
+      <ion-input (focus)="focusFunction()" class="forInline" type="weight" formControlName="weight" required></ion-input>
+    </ion-item>
+    <div style="margin-left:2.5%;">
+      <ion-chip (click)="kg()" [class.greenSelected]="selectedValue == 'kg'" outline color="success">
+        <ion-label>Kg</ion-label>
+      </ion-chip>
+      <ion-chip (click)="pounds()" [class.yellowSelected]="selectedValue == 'lb/pounds'" outline color="danger">
+        <ion-label>Lbs/pounds</ion-label>
+      </ion-chip>
+    </div>
+
+    <ion-item class="firstItem" lines="full">
+      <ion-label>Gender:</ion-label>
+      <ion-input (focus)="focusFunction()" type="text" formControlName="gender" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label>Password:</ion-label>
+      <ion-input (focus)="focusFunction()" type="password" formControlName="password" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label>Confirm Password:</ion-label>
+      <ion-input (focus)="focusFunction()" type="password" formControlName="password_confirmation" required ></ion-input>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" class="myorange orangeRiple" expand="block">Sign Up</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

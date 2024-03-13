@@ -1,17 +1,37 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" style="border: 5px solid rgb(206, 41, 170);">
   <ion-toolbar>
-    <ion-title>
-      Tab 3
+    <ion-title class="forFont" style="color:rgb(206, 41, 170);">
+      Your Top Drinks
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <div class="card">
+    <div class="header row">
+      <div class="avatar column" [ngClass]="{'overCharacters' : drink.name.length > 10}" *ngFor="let drink of drinks">
+        <h3 class="forFont wrap-text" [style.color]="drink.mainColor">{{drink.name}}</h3>
+        <img *ngIf="drink.quantity" routerLink="/detail/{{drink.id}}" [style.border-color]="drink.mainColor" [style.background-color]="drink.mainColor" [src]="drink.img">
+        <img *ngIf="drink.mL" [style.border-color]="drink.mainColor" [style.background-color]="drink.mainColor" [src]="drink.img">
+      </div>
+    </div>
+  </div>
+  <h1 class="forFont" *ngIf="drinks?.length > 0 ">Total amount you consumed:</h1>
+  <div class="card">
+    <div class="row">
+      <div class="column" *ngFor="let drink of drinks">
+        <!-- Cocktails -->
+        <h3 *ngIf="drink.quantity" [style.color] = "drink.mainColor" class="forFont wrap-text">{{drink.quantity}} glasses!</h3>
+        <lottie-player *ngIf="drink.quantity && drink.quantity <  5" autoplay loop src="../../../assets/animations/cocktail33.json"></lottie-player>
+        <lottie-player *ngIf="drink.quantity && drink.quantity >= 5 && drink.quantity < 10" autoplay loop src="../../../assets/animations/cocktail44.json"></lottie-player>
+        <lottie-player *ngIf="drink.quantity && drink.quantity >= 10" autoplay loop src="../../../assets/animations/cocktail55.json"></lottie-player>
+        <!-- Normal Drinks -->
+        <h4 *ngIf="drink.mL" [ngClass]="{'overNormal' : drink.mL > 9999.99, 'normal' : drink.mL <= 9999.99 && deviceWidth>= 360, 'over9999WidthUnder328': deviceWidth <= 328, 'smallDeviceS5': deviceWidth <= 366 && drink.mL > 9999.99}" [style.color] = "drink.mainColor" class="forFont">{{drink.mL | number: '1.2-2' }} mL</h4>
+        <lottie-player style="margin-top: 28px;" *ngIf="drink.mL && drink.mL < 1000" autoplay loop src="../../../assets/animations/beerForTop3.json"></lottie-player>
+        <lottie-player style="margin-top: 28px;" *ngIf="drink.mL && drink.mL >= 1000 && drink.mL < 5000" autoplay loop src="../../../assets/animations/beerForTop4.json"></lottie-player>
+        <lottie-player style="margin-top: 28px;" *ngIf="drink.mL && drink.mL >= 5000" autoplay loop src="../../../assets/animations/beerForTop55.json"></lottie-player>
+      </div>
+    </div>
+  </div>
+  <h3 style="text-align: center;font-weight: bold;" *ngIf="drinks?.length == 0">There are no past sessions to analyze, please use the calculator first! :)</h3>
 </ion-content>

@@ -4,6 +4,11 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
+// for lottie
+import { defineCustomElements } from '@teamhive/lottie-player/loader';
+
+defineCustomElements(window);
+
 if (environment.production) {
   enableProdMode();
 }

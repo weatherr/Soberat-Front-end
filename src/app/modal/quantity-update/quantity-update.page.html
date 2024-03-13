@@ -1,0 +1,15 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>quantityUpdate</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content class="bg">
+  <ion-item lines="none" class="borders" style="height:100%;">
+    <ion-label>Enter quantity:</ion-label>
+    <ion-input #quantity (change)="changeQuantity(quantity.value)" type="number" inputmode="numeric" placeholder="{{currentQuantity}}" lines="none"></ion-input>
+    <!-- <ion-input class="forInline" type="weightType" formControlName="weightType" required></ion-input> -->
+  </ion-item>
+<!-- <h2>Enter quantity:</h2>
+<ion-input #quantity (change)="changeQuantity(quantity.value)" inputmode="numeric" type="number" [value]="currentQuantity"></ion-input> -->
+</ion-content>
