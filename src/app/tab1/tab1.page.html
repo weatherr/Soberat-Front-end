@@ -12,7 +12,7 @@
   <ion-item text-center class="forTitles" lines="none"><ion-label style="margin-bottom: 0;">1. Select your drinks:</ion-label></ion-item>
   <ion-searchbar searchIcon="beer-outline" class="searchbar" (ionInput)="search(searchBox.value)" (ionFocus)="searchFocused()" #searchBox></ion-searchbar>
   <!-- <ion-list> -->
-  <ion-item class="searchTerm" *ngFor="let drink of drinks$ | async" button (click)="add(drink.id)" [ngClass]="{'hideSearch': !searching, 'showSearch': searching}">{{drink.name}}</ion-item>
+  <ion-item class="searchTerm" *ngFor="let drink of drinks$ | async" button (click)="add(drink.id)" [ngClass]="{'hideSearch': !searching, 'showSearch': searching}">{{drink.name | titlecase}}</ion-item>
   <!-- </ion-list> -->
   <ion-item text-center lines="full" [ngClass]="{'forTitles': drinks?.length > 0 || normalList?.length > 0,'forTitlesTransparent': drinks?.length <= 0 && normalList?.length <= 0}"><ion-label *ngIf="drinks?.length > 0 || normalList?.length > 0">2. Edit amount if necessary:</ion-label></ion-item>
     <!--  button routerLink="/detail/{{drink.id}}" -->

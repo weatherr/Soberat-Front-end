@@ -101,6 +101,7 @@ export class DrinkService {
       // if not search term, return empty drink array.
       return of([]);
     }
+    // console.log(term);
     return this.http.get<Drink[]>(`${this.drinksUrl}/searchSuggestions?drink=${term}`);
   }
 
@@ -151,6 +152,7 @@ export class DrinkService {
     let httpParams = new HttpParams();
     httpParams = httpParams.append('userId', userId.toString());
     httpParams = httpParams.append('date', date);
+    console.log(date);
     return this.http.post(url, httpParams, this.options);
   }
 

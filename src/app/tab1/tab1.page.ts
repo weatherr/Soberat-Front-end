@@ -260,12 +260,19 @@ export class Tab1Page implements OnInit {
 
   delete(drink: Drink): void {
     this.drinks = this.drinks.filter(d => d !== drink); // vrushta ot array vsichki bez toq
+    // if(this.normalList == [] && this.drinks == [])
     this.drinkService.deleteDrink(drink, this.user.id).subscribe();
+    if (this.drinks.length == 0 && this.normalList.length == 0){
+      this.clearList();
+    }
   }
 
   deleteNormal(drink: NormalDrink): void {
     this.normalList = this.normalList.filter(d => d !== drink); // vrushta ot array vsichki bez toq
     this.drinkService.deleteNormalDrink(drink, this.user.id).subscribe();
+    if (this.drinks.length == 0 && this.normalList.length == 0){
+      this.clearList();
+    }
   }
 
   clearList(): void
