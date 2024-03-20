@@ -77,6 +77,7 @@ export class Tab4Page implements OnInit {
       },
       error => {
         this.errors = error.error;
+        // console.log(this.errors);
       });
   }
 

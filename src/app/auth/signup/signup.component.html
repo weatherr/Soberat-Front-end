@@ -48,17 +48,17 @@
     
     <ion-item class="firstItem" lines="full">
       <ion-label>Name:</ion-label>
-      <ion-input (focus)="focusFunction()" type="text" formControlName="name" required></ion-input>
+      <ion-input (focus)="focusFunction()" type="text" formControlName="name" placeholder="John Smith" required></ion-input>
     </ion-item>
 
     <ion-item lines="full">
       <ion-label>Email address:</ion-label>
-      <ion-input (focus)="focusFunction()" type="email" formControlName="email" required></ion-input>
+      <ion-input (focus)="focusFunction()" type="email" formControlName="email" email placeholder="email@domain.com" required></ion-input>
     </ion-item>
 
     <ion-item lines="full">
       <ion-label>Weight:</ion-label>
-      <ion-input (focus)="focusFunction()" class="forInline" type="weight" formControlName="weight" required></ion-input>
+      <ion-input (focus)="focusFunction()" class="forInline" type="number" formControlName="weight" placeholder="000" required></ion-input>
     </ion-item>
     <div style="margin-left:2.5%;">
       <ion-chip (click)="kg()" [class.greenSelected]="selectedValue == 'kg'" outline color="success">
@@ -71,7 +71,7 @@
 
     <ion-item class="firstItem" lines="full">
       <ion-label>Gender:</ion-label>
-      <ion-input (focus)="focusFunction()" type="text" formControlName="gender" required></ion-input>
+      <ion-input (focus)="focusFunction()" type="text" formControlName="gender" placeholder="male" required></ion-input>
     </ion-item>
 
     <ion-item lines="full">

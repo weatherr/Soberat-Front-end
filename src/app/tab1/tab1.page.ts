@@ -208,7 +208,7 @@ export class Tab1Page implements OnInit {
   add(id: number): void {
     if (id <= 100)
     {
-      this.addNormal(id, 100);
+      this.addNormal(id, 100); // set value default mL to 100
     }else{
       let isItemInCart = this.drinks.find(e => e.id == id);
       if (isItemInCart === undefined)
