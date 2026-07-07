@@ -32,14 +32,14 @@ Follow these instructions to get a local copy of the project up and running on y
 
 ### Build & Run Instructions
 
-1. Clone the repository:
+1. Clone the repository  
 git clone https://github.com/weatherr/Soberat-Front-end.git
 
-2. Navigate into the directory:
+2. Navigate into the directory  
 cd Soberat-Front-end
 
-3. Install the dependencies
+3. Install the dependencies  
 npm install
 
-4. Start the development server
+4. Start the development server  
 ionic serve
